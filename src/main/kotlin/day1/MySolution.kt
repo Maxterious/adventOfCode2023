@@ -1,8 +1,8 @@
 package day1
 
-class MySolution {
+class MySolution(private val input: List<String>) {
 
-    fun calculateCodeSum(input: List<String>): Int {
+    fun calculateCodeSum(): Int {
         val extractedCodes: MutableList<Int> = ArrayList()
 
         for (string in input) {
