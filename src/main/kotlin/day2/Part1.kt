@@ -1,6 +1,6 @@
 package day2
 
-class MySolution(private val input: List<String>) {
+class Part1(private val input: List<String>) {
     private val maxRed = 12
     private val maxGreen = 13
     private val maxBlue = 14
@@ -22,15 +22,15 @@ class MySolution(private val input: List<String>) {
 
     private fun isGameValid(subsets: List<String>): Boolean {
         for (subset in subsets) {
-            val cubeGame = CubeGame()
             val revealedCubes = subset.split(",")
 
-            if (!isSubsetValid(revealedCubes, cubeGame)) return false
+            if (!isSubsetValid(revealedCubes)) return false
         }
         return true
     }
 
-    private fun isSubsetValid(revealedCubes: List<String>, cubeGame: CubeGame): Boolean {
+    private fun isSubsetValid(revealedCubes: List<String>): Boolean {
+        val cubeGame = CubeGame()
         for (revealedCube in revealedCubes) {
             when {
                 revealedCube.contains("red") -> cubeGame.redAmount += revealedCube.filter { it.isDigit() }.toInt()
